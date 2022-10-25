@@ -56,7 +56,7 @@ public class Contacto implements Serializable {
     /**
      * Tuple creation date-time
      */
-    @Column(name = "cnt_created_at", nullable = false)
+    @Column(name = "cnt_created_at", nullable = false, updatable = false)
     private Instant cntCreatedAt;
 
     /**
