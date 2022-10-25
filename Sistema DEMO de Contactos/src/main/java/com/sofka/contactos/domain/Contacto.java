@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Contact entity
+ * Contacto entity
  *
  * @version 1.0.0 2022-10-25
  * @author Larry Mateo Ramirez C.
