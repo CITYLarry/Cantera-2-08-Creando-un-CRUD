@@ -1,7 +1,7 @@
 package com.sofka.contactos.repository;
 
 import com.sofka.contactos.domain.Telefono;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * Repository for Telefono entity
@@ -9,5 +9,5 @@ import org.springframework.data.repository.CrudRepository;
  * @version 1.0.0 2022-10-28
  * @author Larry Mateo Ramirez C.
  */
-public interface TelefonoRepository extends CrudRepository<Telefono, Integer> {
+public interface TelefonoRepository extends JpaRepository<Telefono, Integer> {
 }
