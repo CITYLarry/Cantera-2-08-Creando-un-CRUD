@@ -42,7 +42,7 @@ public class LibretaService implements ILibreta {
     @Override
     @Transactional(readOnly = true)
     public List<Contacto> getList() {
-        return (List<Contacto>) contactoRepository.findAll();
+        return contactoRepository.findAll();
     }
 
     /**
@@ -56,7 +56,7 @@ public class LibretaService implements ILibreta {
     @Override
     @Transactional(readOnly = true)
     public List<Contacto> getList(String sortedBy, Sort.Direction order) {
-        return (List<Contacto>) contactoRepository.findAll(Sort.by(order, sortedBy));
+        return contactoRepository.findAll(Sort.by(order, sortedBy));
     }
 
     /**
