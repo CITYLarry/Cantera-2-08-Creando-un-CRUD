@@ -154,7 +154,8 @@ public class LibretaController {
      */
     @PostMapping(path = "/api/v1/contact")
     public ResponseEntity<Response> newContacto (
-            @RequestBody Contacto contact
+            //@RequestBody
+            Contacto contact
     ) {
         response.restart();
         try {
