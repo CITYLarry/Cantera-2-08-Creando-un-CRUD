@@ -91,7 +91,7 @@ public interface ILibreta {
     public Telefono newTelefono(Telefono telefono);
 
     /**
-     * Updates a contact
+     * Updates a contact telephone
      *
      * @param id       Telephone ID to update
      * @param telefono Object that contains the contact to be updated
