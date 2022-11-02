@@ -81,7 +81,8 @@ public class LibretaService implements ILibreta {
     @Transactional
     public Contacto newContacto(Contacto contacto) {
         contacto.setCntCreatedAt(Instant.now());
-        return contactoRepository.save(contacto);
+        contactoRepository.save(contacto);
+        return contacto;
     }
 
     /**
@@ -159,7 +160,8 @@ public class LibretaService implements ILibreta {
     @Transactional
     public Telefono newTelefono(Telefono telefono) {
         telefono.setTelCreatedAt(Instant.now());
-        return telefonoRepository.save(telefono);
+        telefonoRepository.save(telefono);
+        return telefono;
     }
 
     /**
