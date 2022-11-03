@@ -72,6 +72,15 @@ public interface IAddressBookList {
     public AddressBookList updateMail(Integer id, AddressBookList contact);
 
     /**
+     * Updates a contact birthday
+     *
+     * @param id      Contact ID to update
+     * @param contact Object that contains the contact to be updated
+     * @return        AddressBookList object updated
+     */
+    public AddressBookList updateBday(Integer id, AddressBookList contact);
+
+    /**
      * Logic delete of a contact
      *
      * @param id      Contact ID to update
@@ -79,6 +88,7 @@ public interface IAddressBookList {
      * @return        AddressBookList object updated
      */
     public AddressBookList updateDelete(Integer id, AddressBookList contact);
+
 
     /**
      * Deletes a contact
