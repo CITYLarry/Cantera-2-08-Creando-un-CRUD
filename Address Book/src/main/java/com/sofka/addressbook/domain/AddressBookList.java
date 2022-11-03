@@ -51,7 +51,7 @@ public class AddressBookList implements Serializable {
     /**
      * Contact email
      */
-    @Column(name = "ab_mail", length = 120, updatable = false)
+    @Column(name = "ab_mail", length = 120)
     private String abMail;
 
     /**
