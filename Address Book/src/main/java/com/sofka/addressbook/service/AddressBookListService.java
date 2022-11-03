@@ -40,6 +40,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return     List of contacts
      */
     @Override
+    @Transactional(readOnly = true)
     public List<AddressBookList> search(String data) {
         return addressBookListRepository.search(data);
     }
@@ -51,6 +52,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return        AddressBookList object created
      */
     @Override
+    @Transactional
     public AddressBookList newContact(AddressBookList contact) {
         contact.setAbCreatedAt(Instant.now());
         addressBookListRepository.save(contact);
@@ -65,6 +67,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return AddressBookList object updated
      */
     @Override
+    @Transactional
     public AddressBookList updateContact(Integer id, AddressBookList contact) {
         contact.setId(id);
         contact.setAbUpdatedAt(Instant.now());
@@ -80,6 +83,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return AddressBookList object updated
      */
     @Override
+    @Transactional
     public AddressBookList updateName(Integer id, AddressBookList contact) {
         contact.setId(id);
         contact.setAbUpdatedAt(Instant.now());
@@ -95,6 +99,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return AddressBookList object updated
      */
     @Override
+    @Transactional
     public AddressBookList updatePhone(Integer id, AddressBookList contact) {
         contact.setId(id);
         contact.setAbUpdatedAt(Instant.now());
@@ -110,6 +115,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return AddressBookList object updated
      */
     @Override
+    @Transactional
     public AddressBookList updateMail(Integer id, AddressBookList contact) {
         contact.setId(id);
         contact.setAbUpdatedAt(Instant.now());
@@ -125,6 +131,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return AddressBookList object updated
      */
     @Override
+    @Transactional
     public AddressBookList updateDelete(Integer id, AddressBookList contact) {
         contact.setId(id);
         contact.setAbUpdatedAt(Instant.now());
@@ -140,6 +147,7 @@ public class AddressBookListService implements IAddressBookList{
      * @return AddressBookList object deleted
      */
     @Override
+    @Transactional
     public AddressBookList deleteContact(Integer id) {
         var contact = addressBookListRepository.findById(id);
         if(contact.isEmpty()) {
