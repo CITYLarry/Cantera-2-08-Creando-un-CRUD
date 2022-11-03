@@ -1,0 +1,22 @@
+{
+  "name": "06-webserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "hbs": "^4.2.0",
+    "mongoose": "^6.6.2",
+    "node-fetch": "^2.6.7"
+  }
+}
