@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -63,6 +64,18 @@ public interface AddressBookListRepository extends JpaRepository<AddressBookList
             "SET a.abMail = :mail, a.abUpdatedAt = CURRENT_TIMESTAMP " +
             "WHERE a.id = :id")
     public void updateMail(@Param(value = "id") Integer id, @Param(value = "mail") String mail);
+
+    /**
+     * Updates the contact birthday in the database
+     *
+     * @param id   Contact ID to update
+     * @param bday Date to update
+     */
+    @Modifying
+    @Query(value = "UPDATE AddressBookList a " +
+            "SET a.abBday = :bday, a.abUpdatedAt = CURRENT_TIMESTAMP " +
+            "WHERE a.id = :id")
+    public void updateBday(@Param(value = "id") Integer id, @Param(value = "bday") LocalDate bday);
 
     /**
      * Updates the contact to be deleted in the database
