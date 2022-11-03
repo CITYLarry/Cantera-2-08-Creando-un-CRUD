@@ -124,6 +124,22 @@ public class AddressBookListService implements IAddressBookList{
     }
 
     /**
+     * Updates a contact birthday
+     *
+     * @param id      Contact ID to update
+     * @param contact Object that contains the contact to be updated
+     * @return        AddressBookList object updated
+     */
+    @Override
+    @Transactional
+    public AddressBookList updateBday(Integer id, AddressBookList contact) {
+        contact.setId(id);
+        contact.setAbUpdatedAt(Instant.now());
+        addressBookListRepository.updateBday(id, contact.getAbBday());
+        return contact;
+    }
+
+    /**
      * Logic delete of a contact
      *
      * @param id      Contact ID to update
