@@ -1,0 +1,140 @@
+/* General*/
+
+* {
+    font-family: 'Roboto', 'sans-serif';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(0, 204, 0, 0.2);
+    background-image: url("/images/bg.jpg");
+    background-size: cover;
+}
+
+/* Header*/
+
+header {
+    background-color: rgb(153, 51, 204);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    padding-left: 1em;
+    color: white;
+}
+
+/* Add contact*/
+#add-contacts .container {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 15px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 1rem;
+    box-shadow: 0 0 30px  rgb(153, 51, 204);
+    text-align: center;
+    align-items: center;
+}
+
+#add-contacts .container .form{
+    display: flex;
+    flex-direction: column;
+    padding: 0.3em;
+}
+
+#add-contacts .container .form .input{
+    padding: 0.3em;
+    margin: 0.5em;
+    border: none;
+    background: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+#add-contacts .container .form .input:hover{
+    background-color: rgba(120, 0, 255, 0.2);
+}
+
+#add-contacts .container .form .input:focus{
+    border-bottom: 2px solid rgba(0, 255, 0, 1);
+    background-color: rgba(120, 0, 255, 0.2);
+}
+
+#add-contacts .container .form .submit{
+    padding: 0.3em;
+    border-radius: 2rem;
+    border-color: rgb(153, 51, 204);
+    color: rgb(153, 51, 204);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#add-contacts .container .form .submit:hover{
+    color: white;
+    background-color: rgb(153, 51, 204);
+    border-color: white;
+}
+
+/* Contacts list section*/
+
+#contact-list .container {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 15px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 1rem;
+    box-shadow: 0 0 30px  rgb(153, 51, 204);
+    text-align: center;
+    align-items: center;
+}
+
+#contact-list .container .tb-contacts{
+    width: 100%;
+    max-width: 100%;
+    border-spacing: 0;
+}
+
+#contact-list .container .tb-contacts th{
+    background-color: rgba(120, 0, 255, 0.6);
+    padding: 0.5em;
+    color: white;
+    border-bottom: 0.2em solid rgba(120, 0, 255, 0.3);
+}
+
+#contact-list .container .tb-contacts td {
+    text-align: left;
+    padding: 0.2em;
+}
+
+#contact-list .container .tb-contacts .contact-item:nth-child(even)  {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+#contact-list .container .tb-contacts .contact-item:nth-child(odd)  {
+    background-color: rgba(120, 0, 255, 0.2);
+}
+
+#contact-list .container .tb-contacts td #edit {
+    color: rgb(120, 0, 255);
+    margin: 0.5rem;
+    transition: 0.3s;
+}
+
+#contact-list .container .tb-contacts td #edit:hover {
+    color: rgb(0, 150, 255);
+    box-shadow: 0 0 1em  rgb(0, 150, 255);
+}
+
+#contact-list .container .tb-contacts td  #delete {
+    color: rgb(130, 130, 130);
+    margin: 0.2rem;
+    transition: 0.3s;
+}
+
+#contact-list .container .tb-contacts td  #delete:hover {
+    color: rgb(255, 0, 0);
+    box-shadow: 0 0 1em  rgb(255, 0, 0);
+}
