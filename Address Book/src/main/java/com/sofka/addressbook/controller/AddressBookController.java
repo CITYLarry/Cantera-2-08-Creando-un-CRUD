@@ -4,11 +4,18 @@ import com.sofka.addressbook.domain.AddressBookList;
 import com.sofka.addressbook.service.AddressBookListService;
 import com.sofka.addressbook.utility.Response;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,6 +33,7 @@ public class AddressBookController {
     /**
      * Service for the address book handle
      */
+    @Autowired
     private AddressBookListService addressBookListService;
 
     /**
@@ -92,12 +100,34 @@ public class AddressBookController {
     }
 
     /**
+     * Return an object that contains the contact with the coincident id
+     *
+     * @param id Searching filter
+     * @return     Response object
+     */
+    @GetMapping(path = "/api/v1/find/{id}")
+    public ResponseEntity<Response> findId(
+            @PathVariable(value = "id") Integer id) {
+        response.restart();
+        try {
+            response.data = addressBookListService.findId(id);
+            response.message = "Contact successfully found.";
+            httpStatus = HttpStatus.OK;
+        } catch (DataAccessException e) {
+            getErrorMessageForResponse(e);
+        } catch (Exception e) {
+            getErrorMessageInternal(e);
+        }
+        return new ResponseEntity<>(response, httpStatus);
+    }
+
+    /**
      * Return a list object that contains all the contacts with the coincident filter
      *
      * @param data Searching filter
      * @return     Response object
      */
-    @GetMapping(path = "/api/v1/find/{data}")
+    @GetMapping(path = "/api/v1/search/{data}")
     public ResponseEntity<Response> search(
             @PathVariable(value = "data") String data) {
         response.restart();
