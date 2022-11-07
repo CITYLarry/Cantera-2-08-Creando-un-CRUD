@@ -10,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import java.io.Serializable;
 import java.time.Instant;
-import java.time.LocalDate;
 
 /**
  * AddrressBookList entity
@@ -58,7 +57,7 @@ public class AddressBookList implements Serializable {
      * Contact birth date
      */
     @Column(name = "ab_bday")
-    private LocalDate abBday;
+    private String abBday;
 
     /**
      * Tuple creation date-time
