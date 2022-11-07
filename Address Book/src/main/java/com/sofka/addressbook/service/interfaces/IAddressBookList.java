@@ -20,7 +20,15 @@ public interface IAddressBookList {
     public List<AddressBookList> getList();
 
     /**
-     * Return a list object that contains all the contacts white coincident filter
+     * Return an object that contains the contact with the coincident id
+     *
+     * @param id Object to retun id
+     * @return   List of contacts
+     */
+    public AddressBookList findId(Integer id);
+
+    /**
+     * Return a list object that contains all the contacts with the coincident filter
      *
      * @param data Seaching filter
      * @return     List of contacts
