@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="/styles/styleEdit.css">
+    <title>Libreta de contactos - CITYLarry</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="/images/banner.png" height="75px">
+        <h1>ACTUALIZAR CONTACTO</h1>
+    </header>
+
+    <!-- Add contacts-->
+    <section id="add-contacts">
+        <div class="container">
+            <form class="form" action="/edit/{{id}}"  method="POST">
+                <input class="input" type="text" name="abName" value="{{contact.abName}}">
+                <input class="input" type="text" name="abPhone" value="{{contact.abPhone}}">
+                <input class="input" type="email" name="abMail" value="{{contact.abMail}}">
+                <input class="input" type="date" name="abBday" value="{{contact.abBday}}">
+                <input class="submit" type="submit" id="submit" value="Editar contacto">
+                <input class="cancel" type="button" value= "Cancelar" onclick="window.location=(`/`)">
+            </form>
+        </div>
+</body>
+</html>
