@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -16,6 +15,17 @@ import java.util.List;
  * @author Larry Mateo Ramirez C.
  */
 public interface AddressBookListRepository extends JpaRepository<AddressBookList, Integer> {
+
+    /**
+     * Return a  contact that contains the searching id
+     *
+     * @param id id to find
+     * @return   Object that contains the coincident id
+     */
+    @Query(value = "SELECT a " +
+            "FROM AddressBookList a " +
+            "WHERE a.id = :id")
+    public AddressBookList findId(@Param("id") Integer id);
 
     /**
      * Return a lis of contacts that contains the searching filter in its name
@@ -75,7 +85,7 @@ public interface AddressBookListRepository extends JpaRepository<AddressBookList
     @Query(value = "UPDATE AddressBookList a " +
             "SET a.abBday = :bday, a.abUpdatedAt = CURRENT_TIMESTAMP " +
             "WHERE a.id = :id")
-    public void updateBday(@Param(value = "id") Integer id, @Param(value = "bday") LocalDate bday);
+    public void updateBday(@Param(value = "id") Integer id, @Param(value = "bday") String bday);
 
     /**
      * Updates the contact to be deleted in the database
