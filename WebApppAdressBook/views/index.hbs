@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,17 +10,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" 
     crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>Juego de dados - CITYLarry</title>
+    <link rel="stylesheet" href="/styles/styleIndex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Libreta de contactos - CITYLarry</title>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <img src="/images/banner.png" height="75px">
+        <h1>LIBRETA DE CONTACTOS</h1>
     </header>
-    <section>
-        
-        
+
+    <!-- Add contacts-->
+    <section id="add-contacts">
+        <div class="container">
+            <form class="form" action="/"  method="POST">
+                <input class="input" type="text" name="abName" placeholder="Nombre">
+                <input class="input" type="text" name="abPhone" placeholder="Telefono">
+                <input class="input" type="email" name="abMail" placeholder="Correo">
+                <input class="input" type="date" name="abBday">
+                <input class="submit" type="submit" id="submit" value="Añadir contacto">
+            </form>
+        </div>
     </section>
+
+    <!-- Contact list -->
+    <section id="contact-list">
+        <div class="container">
+            <table class="tb-contacts" id="contacts">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Cumpleaños</th>
+                </tr>
+                {{#each contacts}}
+                <tr class="contact-item">
+                    <td >{{this.abName}}</td>
+                    <td>{{this.abPhone}}</td>
+                    <td>{{this.abMail}}</td>
+                    <td>{{this.abBday}}</td>
+                    <td>
+                        <a id="edit" href="/edit/{{this.id}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a id="delete" href="/delete/{{this.id}}"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+                {{/each}}
+        </div>
     </section>
 </body>
 </html>
