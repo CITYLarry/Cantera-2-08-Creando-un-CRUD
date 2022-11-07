@@ -19,6 +19,9 @@ import java.util.List;
 @Service
 public class AddressBookListService implements IAddressBookList{
 
+    /**
+     * AdressBookList repository
+     */
     @Autowired
     private AddressBookListRepository addressBookListRepository;
 
@@ -31,6 +34,17 @@ public class AddressBookListService implements IAddressBookList{
     @Transactional(readOnly = true)
     public List<AddressBookList> getList() {
         return addressBookListRepository.findAll();
+    }
+
+    /**
+     * Return an object that contains the contact with the coincident id
+     *
+     * @param id Object to retun id
+     * @return   List of contacts
+     */
+    @Override
+    public AddressBookList findId(Integer id) {
+        return addressBookListRepository.findId(id);
     }
 
     /**
