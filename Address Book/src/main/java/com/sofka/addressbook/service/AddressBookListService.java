@@ -47,6 +47,10 @@ public class AddressBookListService implements IAddressBookList{
         return addressBookListRepository.findId(id);
     }
 
+    public AddressBookList findByName(String name) {
+        return  addressBookListRepository.findByAbName(name);
+    }
+
     /**
      * Return a list object that contains all the contacts with the coincident filter
      *

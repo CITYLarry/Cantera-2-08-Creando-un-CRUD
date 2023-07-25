@@ -121,6 +121,23 @@ public class AddressBookController {
         return new ResponseEntity<>(response, httpStatus);
     }
 
+
+    @GetMapping(path = "/api/v1/find/name/{name}")
+    public ResponseEntity<Response> findByName(
+            @PathVariable(value = "name") String name) {
+        response.restart();
+        try {
+            response.data = addressBookListService.findByName(name);
+            response.message = "Contact successfully found.";
+            httpStatus = HttpStatus.OK;
+        } catch (DataAccessException e) {
+            getErrorMessageForResponse(e);
+        } catch (Exception e) {
+            getErrorMessageInternal(e);
+        }
+        return new ResponseEntity<>(response, httpStatus);
+    }
+
     /**
      * Return a list object that contains all the contacts with the coincident filter
      *

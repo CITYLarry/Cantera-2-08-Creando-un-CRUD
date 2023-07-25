@@ -33,11 +33,13 @@ public interface AddressBookListRepository extends JpaRepository<AddressBookList
      * @param data Data to search
      * @return     List of contacts that contain the search filter
      */
-    @Query(value = "SELECT a.id " +
+    @Query(value = "SELECT a " +
             "FROM AddressBookList a " +
             "WHERE a.abName LIKE %:data% " +
             "ORDER BY a.abName ASC")
     public List<AddressBookList> search(@Param("data") String data);
+
+    public AddressBookList findByAbName(String abName);
 
     /**
      * Updates the contact name in the database
